@@ -4,7 +4,7 @@ workflows:
   test:
     jobs:
     - test-3.7
-    - test-2.7
+#    - test-2.7
 jobs:
   test-3.7: &test-template
     environment:
@@ -65,12 +65,12 @@ jobs:
           cd lib-semseg
           make coverage-report
 
-    - run:
-        name: Coveralls submission
-        when: always
-        command: |
-          cd lib-semseg
-          make coverage-coveralls
+#    - run:
+#        name: Coveralls submission
+#        when: always
+#        command: |
+#          cd lib-semseg
+#          make coverage-coveralls
 
     - run:
         name: Create JUnit output
@@ -98,10 +98,10 @@ jobs:
         path: lib-semseg/notebooks
         destination: notebooks
 
-  test-2.7:
-    <<: *test-template
-    docker:
-    - image: python:2.7
+#  test-2.7:
+#    <<: *test-template
+#    docker:
+#    - image: python:2.7
 
 #  test-circle-2.7:
 #    <<: *test-template
